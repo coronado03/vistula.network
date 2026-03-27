@@ -49,8 +49,8 @@ export interface Member {
 
 export const ROLE_OPTIONS = [
   'engineering', 'design', 'product', 'growth', 'ai/ml', 'research',
-  'hardware', 'quant', 'software', 'finance', 'vc',
-] as const;
+  'hardware', 'quant', 'software', 'finance', 'vc', 'cyber security', 'it support', 'customer support',
+] as const
 
 export const VERTICAL_OPTIONS = [
   'fintech', 'ai', 'climate', 'healthcare', 'edtech', 'marketplaces',
@@ -123,6 +123,20 @@ export const members: Member[] = [
     twitter: "https://x.com/shkhrustamov",
     linkedin: "https://www.linkedin.com/in/shohijahon-rustamov-6aa968242/",
   },
+
+{
+  id: "enes-aydin",
+  name: "Enes Aydin",
+  website: "https://enes-aydin-portfolio-main.vercel.app",
+  program: "Computer Engineering",
+  year: "2026",
+  roles: ["Cyber Security Analyst" , "IT support", "Customer support"],
+  verticals: ["Cyber security", "Automotive", "AI"],
+  profilePic: "/photos/enes-aydin.jpg",
+  linkedin: "https://www.linkedin.com/in/enes-aydin-/",
+  instagram: "https://www.instagram.com/enesnfx/",
+  connections: ["sebastian-coronado", "nurtas-alibi", "yuri-dejoya", "regis-Kayumba"],
+},
 
   // ============================================
   // ADD YOUR ENTRY ABOVE THIS LINE
