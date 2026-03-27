@@ -9,12 +9,12 @@ export default function Home() {
   const [query, setQuery] = useState("");
 
   return (
-    <main className="min-h-screen bg-[#111111] text-neutral-300 px-10 py-12 font-mono">
+    <main className="min-h-screen bg-[#111111] text-neutral-300 px-5 md:px-10 py-10 md:py-12 font-mono">
 
-      <div className="flex items-start justify-between gap-8 mb-14">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-10 md:mb-14">
 
-        <div className="max-w-xl">
-          <h1 className="text-3xl text-white tracking-tight mb-5">
+        <div className="w-full md:max-w-xl">
+          <h1 className="text-2xl md:text-3xl text-white tracking-tight mb-4 md:mb-5">
             vistula.network
           </h1>
           <p className="text-sm text-neutral-400 leading-relaxed mb-3">
@@ -29,7 +29,7 @@ export default function Home() {
           <p className="text-sm text-neutral-500 leading-relaxed mb-3">
             want to join?{" "}
             <a
-              href="https://github.com/coronado03/vistula.network"
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-300 underline underline-offset-2 hover:text-white transition-colors"
@@ -39,13 +39,17 @@ export default function Home() {
           </p>
           <p className="text-xs text-neutral-600 mt-4">
             inspired by{" "}
-            <a href="https://oscargaske.me/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors underline underline-offset-2">oscar gaske</a>
+            <a href="https://oscar.so" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors underline underline-offset-2">
+              oscar gaske
+            </a>
             {" "}and{" "}
-            <a href="https://shayaanazeem.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors underline underline-offset-2">shayaan azeem</a>
+            <a href="https://shayaanazeem.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors underline underline-offset-2">
+              shayaan azeem
+            </a>
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 w-[460px] shrink-0">
+        <div className="flex flex-col gap-3 w-full md:w-[460px] md:shrink-0">
           <div className="relative">
             <AiOutlineSearch
               size={15}
@@ -60,13 +64,15 @@ export default function Home() {
             />
           </div>
 
-          <div className="h-[340px] rounded-md overflow-hidden border border-neutral-800 bg-neutral-950">
+          <div className="h-[220px] md:h-[340px] rounded-md overflow-hidden border border-neutral-800 bg-neutral-950">
             <NetworkGraph />
           </div>
         </div>
       </div>
 
-      <StudentTable searchQuery={query} />
+      <div className="overflow-x-auto -mx-5 md:mx-0 px-5 md:px-0">
+        <StudentTable searchQuery={query} />
+      </div>
 
     </main>
   );
