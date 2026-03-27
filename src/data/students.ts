@@ -126,6 +126,20 @@ export const members: Member[] = [
   connections: ["sebastian-coronado", "nurtas-alibi"], // ids of people you know on the webring
 },
   
+{
+  id: "regis-Kayumba",
+  name: "Regis Igirimbabazi Kayumba",
+  website: "https://regiskayumba.vercel.app/",
+  program: "Computer Engineering",
+  year: "2027",
+  roles: ["Jr IT support", "Sales", "Customer support"],
+  verticals: ["Cyber security", "Automotive", "AI"],
+  profilePic: "/photos/regis-kayumba.jpg",
+  linkedin: "https://www.linkedin.com/in/kayumba-regis-4846161b8/",
+  instagram: "https://www.instagram.com/_regis21/",
+  connections: ["sebastian-coronado", "nurtas-alibi", "yuri-dejoya"],
+},
+  
   // ============================================
 ];
 
