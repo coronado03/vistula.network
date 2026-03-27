@@ -110,6 +110,20 @@ export const members: Member[] = [
     connections: ["sebastian-coronado"],
   },
 
+  {
+    id: "shohijahon-rustamov",
+    name: "Shohijahon Rustamov",
+    website: "https://rustamovsh.vercel.app/",
+    program: "Computer Engineering",
+    year: "2027",
+    roles: ["engineering", "design"],
+    verticals: ["ai", "saas"],
+    profilePic: "/photos/shohijahon-rustamov.jpg",
+    instagram: "https://www.instagram.com/shkhrustamov/",
+    twitter: "https://x.com/shkhrustamov",
+    linkedin: "https://www.linkedin.com/in/shohijahon-rustamov-6aa968242/",
+  },
+
   // ============================================
   // ADD YOUR ENTRY ABOVE THIS LINE
 {
