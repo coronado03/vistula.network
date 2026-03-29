@@ -177,7 +177,7 @@ export const members: Member[] = [
   year: "2026",                            
   roles: ["product"],        
   verticals: ["consumer", "saas"],              
-  profilePic: "/photos/zhe-chen.jpg",
+  profilePic: "/photos/zhe.chen.jpg",
   instagram: "https://www.instagram.com/cc1109_23/",
   linkedin: "https://www.linkedin.com/in/ccc423/",
   connections: ["sebastian-coronado"], 
