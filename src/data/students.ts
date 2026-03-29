@@ -167,6 +167,21 @@ export const members: Member[] = [
   instagram: "https://www.instagram.com/_regis21/",
   connections: ["sebastian-coronado", "nurtas-alibi", "yuri-dejoya"],
 },
+
+  
+{
+  id: "zhe-chen",                          
+  name: "Zhe Chen",
+  website: "https://cc423.notion.site/zhe-chen-website",      
+  program: "Computer Engineering",          
+  year: "2026",                            
+  roles: ["product"],        
+  verticals: ["consumer", "saas"],              
+  profilePic: "/photos/zhe-chen.jpg",
+  instagram: "https://www.instagram.com/cc1109_23/",
+  linkedin: "https://www.linkedin.com/in/ccc423/",
+  connections: ["sebastian-coronado"], 
+},
   
   // ============================================
 ];
