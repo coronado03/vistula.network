@@ -1,50 +1,68 @@
 /**
- * VISTULA WEBRING MEMBERS (Inspired by uwaloo.network)
- * 
- * To add yourself to the vistula webring:
+ * VISTULA NETWORK MEMBERS (Inspired by uwaloo.network)
+ *
+ * A student directory and yearbook for Vistula University.
+ * Open to all departments — engineers, designers, writers, IR students, everyone.
+ *
+ * To add yourself:
  * 1. Fork this repository
- * 2. Add your profile picture to /public/photos/ 
+ * 2. Add your profile picture to /public/photos/
  * 3. Add your entry to the members array below
  * 4. Submit a pull request
  * 5. I accept you!
- * 
+ *
  * Required fields:
  * - id: Your name with hyphens (e.g., "john-doe")
  * - name: Your full name (e.g, "Emiliano Ramirez Hernandez")
- * - website: Your personal website URL (required to be part of the webring)
- * 
+ *
  * Optional fields:
+ * - website: Your personal website URL
  * - program: Your program at Vistula
- * - year: Your graduation year
+ * - year: Your graduation year (e.g., "2027")
+ * - semester: The semester you joined (e.g., "Fall 2024")
  * - roles: Tags for what you do (e.g., ["engineering", "design", "writer"])
  *          Options: engineering, design, product, growth, ai/ml, research, hardware, quant, software, finance, vc
  * - verticals: Tags for industries you're interested in (e.g., ["fintech", "ai", "climate"])
  *              Options: fintech, ai, climate, healthcare, edtech, marketplaces, robotics, defense, hard tech, saas, consumer, creator tools
+ * - lookingFor: What you're looking for (e.g., ["co-founder", "study group", "internship referral"])
  * - profilePic: Path to your photo (see instructions below)
  * - instagram: Full URL to your Instagram profile
  * - twitter: Full URL to your Twitter/X profile
  * - linkedin: Full URL to your LinkedIn profile
- * - connections: Names of friends with hyphens (e.g., ["john-doe", "jane-smith"])
- * 
+ * - connections: IDs of people you know (e.g., ["john-doe", "jane-smith"])
+ *
  * ADDING YOUR PROFILE PICTURE:
  * 1. Use a square image, ideally 400x400 pixels (your Twitter/X profile pic works great!)
  * 2. Save it as: public/photos/your-name.jpg (or .png)
  * 3. Set profilePic to: "/photos/your-name.jpg"
+ *
+ * ADDING AN EVENT:
+ * Add an entry to the `events` array at the bottom of this file.
  */
 
 export interface Member {
   id: string;
   name: string;
-  website: string;
+  website?: string;
   program?: string;
   year?: string;
+  semester?: string;
   roles?: string[];
   verticals?: string[];
+  lookingFor?: string[];
   profilePic?: string;
   instagram?: string;
   twitter?: string;
   linkedin?: string;
   connections?: string[];
+}
+
+export interface Event {
+  title: string;
+  date: string;
+  description: string;
+  organizer: string; // member id
+  link?: string;
 }
 
 export const ROLE_OPTIONS = [
@@ -72,13 +90,15 @@ export const members: Member[] = [
   // {
   //   id: "john-doe",
   //   name: "John Doe",
-  //   website: "https://johndoe.com",
+  //   website: "https://johndoe.com",       // optional — leave out if you don't have one
   //   program: "Computer Science",
   //   year: "2026",
+  //   semester: "Fall 2024",
   //   // options: engineering, design, product, growth, ai/ml, research, hardware, quant, software, finance, vc
   //   roles: ["engineering", "design"],
   //   // options: fintech, ai, climate, healthcare, edtech, marketplaces, robotics, defense, hard tech, saas, consumer, creator tools
   //   verticals: ["fintech", "ai"],
+  //   lookingFor: ["study group", "co-founder"],
   //   profilePic: "/photos/john-doe.jpg",
   //   instagram: "https://instagram.com/johndoe",
   //   twitter: "https://x.com/johndoe",
@@ -160,11 +180,10 @@ export const members: Member[] = [
 // Helper to get all connections for the network graph
 export function getConnections(): Connection[] {
   const connections: Connection[] = [];
-  
+
   members.forEach(member => {
     if (member.connections) {
       member.connections.forEach(targetId => {
-        // Only add connection if target member exists
         if (members.some(m => m.id === targetId)) {
           connections.push({
             fromId: member.id,
@@ -174,27 +193,32 @@ export function getConnections(): Connection[] {
       });
     }
   });
-  
+
   return connections;
 }
 
-// Helper to get the next and previous members for webring navigation
-export function getWebringNavigation(currentWebsite: string): { prev: Member | null; next: Member | null } {
-  const index = members.findIndex(m => m.website === currentWebsite);
-  if (index === -1) {
-    return { prev: null, next: null };
-  }
-  
-  const prevIndex = (index - 1 + members.length) % members.length;
-  const nextIndex = (index + 1) % members.length;
-  
-  return {
-    prev: members[prevIndex],
-    next: members[nextIndex],
-  };
-}
-
-// Get a random member (useful for the webring widget)
 export function getRandomMember(): Member {
   return members[Math.floor(Math.random() * members.length)];
 }
+
+export function getUniqueYears(): string[] {
+  return [...new Set(members.map(m => m.year).filter(Boolean) as string[])].sort();
+}
+
+export function getUniquePrograms(): string[] {
+  return [...new Set(members.map(m => m.program).filter(Boolean) as string[])].sort();
+}
+
+// ============================================
+// EVENTS — PR to add your event here
+// ============================================
+// {
+//   title: "Startup Pitch Night",
+//   date: "2025-05-10",
+//   description: "Students pitch their startup ideas to peers and faculty.",
+//   organizer: "sebastian-coronado",
+//   link: "https://example.com",
+// },
+
+export const events: Event[] = [
+];
