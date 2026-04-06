@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "vistula.network",
-  description: "the official webring for vistula university students.",
+  description: "the student directory for vistula university.",
 };
 
 export default function RootLayout({
